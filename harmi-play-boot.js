@@ -1,0 +1,2 @@
+/* Cyber Heroes Academy — © 2026 Attique Ahmed / Cyber Heroes Academy. License: CC BY-NC-ND 4.0 (free to share with credit; no commercial use; no modified copies). See LICENSE.txt. */
+HarmiPlay.showMap(document.getElementById("hpApp"));
