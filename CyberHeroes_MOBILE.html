@@ -21070,6 +21070,7 @@ html.hpb-open,html.hpb-open body{overflow:hidden}
     wrapFn(window, 'openCyberLab', { pledge: true });
     if (window.AttackDefenseLab) wrapFn(window.AttackDefenseLab, 'open', { pledge: true });
     if (window.SqliLab) wrapFn(window.SqliLab, 'open', { pledge: true });
+    if (window.AssocTrack) wrapFn(window.AssocTrack, 'open', {}); // v8.3.1: Associate 13+ needs the Master gate
     if (typeof window.openAcademy === 'function' && !window.openAcademy.__chg){
       var oa = window.openAcademy;
       var w = function(screen, arg){
@@ -21080,6 +21081,13 @@ html.hpb-open,html.hpb-open body{overflow:hidden}
     }
   }
   // Clicks: locked master-level note, academy advanced module cards (academy.js opens them through its own closure).
+  // v8.3.1: the Master Hub button (🎓) itself needs the Master gate (13+ PIN + Noori L12, or parent override).
+  document.addEventListener('click', function(e){
+    var t = e.target; if (!t || !t.closest) return;
+    var fab = t.closest('#master-hub-fab'); if (!fab || masterAllowed()) return;
+    e.preventDefault(); e.stopImmediatePropagation();
+    request(function(){ try { if (typeof fab.onclick === 'function') fab.onclick.call(fab); } catch(x){} }, {});
+  }, true);
   document.addEventListener('click', function(e){
     var t = e.target; if (!t || !t.closest) return;
     var g = t.closest('[data-chgate]');
