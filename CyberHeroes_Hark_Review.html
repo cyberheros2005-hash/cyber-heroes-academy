@@ -486,7 +486,7 @@ button:active:not(:disabled),.nav-link:active,.option:active:not(:disabled),.qui
     <div class="neo-pill">🚀 ڈیجیٹل کنگڈم کا سفر — 12 لیولز</div>
     <h1 class="neo-title">CYBER HEROES ACADEMY</h1>
     <p class="neo-subtitle">سیکھو، کھیلو، دریافت کرو — اور بنو ڈیجیٹل دنیا کے ہیرو!</p>
-    <p class="neo-desc">نوری، مانو، ہارمی اور بائٹ کے ساتھ 12 سطحوں کا سفر۔ لیول 4 میں حقیقی نیٹ ورک روٹنگ مشن، اور کمپیوٹر لیب میں حقیقی ٹرمینل موجود ہے۔</p>
+    <p class="neo-desc">نوری، مانو، حرم اور بائٹ کے ساتھ 12 سطحوں کا سفر۔ لیول 4 میں حقیقی نیٹ ورک روٹنگ مشن، اور کمپیوٹر لیب میں حقیقی ٹرمینل موجود ہے۔</p>
     
     <div class="neo-btn-group">
       <button class="neo-btn neo-btn-primary" data-action="start">شروع کریں</button>
@@ -760,11 +760,11 @@ const HEROES = {
     desc:"خوش مزاج، تخیلاتی، پیٹرن اور محفوظ انتخاب جلدی پہچانتی ہے۔",
     pathway:"آن لائن سیفٹی، پیٹرن، بصری منطق، بلاک کوڈنگ، محفوظ عادات اور AI کا تعارف۔",
     welcome:"مانو! تم تخلیقی سیفٹی ڈیٹیکٹیو ہو۔ تصویریں دیکھو، پیٹرن ملاؤ۔" },
-  harmi: { name:"Harmi", urdu:"ہارمی", age:3, title:"The Little Explorer", titleUrdu:"چھوٹی ایکسپلورر",
+  harmi: { name:"Harmi", urdu:"حرم", age:3, title:"The Little Explorer", titleUrdu:"چھوٹی ایکسپلورر",
     color:"#6fffd2", accent:"#ff7a6b",
     desc:"پیاری، نرم اور متجسس۔ رنگ، شکلیں اور سادہ ہدایات سیکھتی ہے۔",
     pathway:"رنگ، شکلیں، ملانا، سادہ پیٹرن، محفوظ/غیر محفوظ تصویریں، والدین کی رہنمائی۔",
-    welcome:"ہارمی! بڑے رنگین بٹن دباؤ۔ والدین ساتھ بیٹھیں۔" }
+    welcome:"حرم! بڑے رنگین بٹن دباؤ۔ والدین ساتھ بیٹھیں۔" }
 };
 
 /* ============ LEVELS (preserved from previous release) ============ */
@@ -1253,9 +1253,9 @@ const LEVELS_MANO = [
 
 const LEVELS_HARMI = [
   { id:1, urdu:"رنگ", en:"Colors", icon:"🎨", steps:[
-    {type:"story",title:"ہارمی لیول 1",text:"بائٹ: ہارمی! آؤ رنگ سیکھیں!",next:"چلیں"},
+    {type:"story",title:"حرم لیول 1",text:"بائٹ: حرم! آؤ رنگ سیکھیں!",next:"چلیں"},
     {type:"choice",title:"🔵 نیلا",text:"یہ کون سا رنگ؟",options:[
-      {label:"🔵 نیلا",correct:true,feedback:"شاباش ہارمی!"},
+      {label:"🔵 نیلا",correct:true,feedback:"شاباش حرم!"},
       {label:"🔴 سرخ",correct:false,feedback:"نیلا ہے، دوبارہ۔"},
       {label:"🟡 پیلا",correct:false,feedback:"نیلا ہے، دوبارہ۔"}
     ]},
@@ -1263,10 +1263,10 @@ const LEVELS_HARMI = [
       {label:"🔴 سرخ",correct:true,feedback:"شاباش!"},
       {label:"🟢 سبز",correct:false,feedback:"سرخ ہے۔"}
     ]},
-    {type:"finish",title:"شاباش ہارمی! 🎉",text:"والدین: ہارمی نے رنگ سیکھ لیے!",badge:"harmi-1"}
+    {type:"finish",title:"شاباش حرم! 🎉",text:"والدین: حرم نے رنگ سیکھ لیے!",badge:"harmi-1"}
   ]},
   { id:2, urdu:"شکلیں", en:"Shapes", icon:"🔷", steps:[
-    {type:"story",title:"ہارمی لیول 2",text:"بائٹ: ہارمی! آؤ شکلیں سیکھیں!",next:"چلیں"},
+    {type:"story",title:"حرم لیول 2",text:"بائٹ: حرم! آؤ شکلیں سیکھیں!",next:"چلیں"},
     {type:"choice",title:"دائرہ",text:"یہ کون سی شکل؟",options:[
       {label:"⭕ دائرہ",correct:true,feedback:"شاباش!"},
       {label:"🔺 تکون",correct:false,feedback:"یہ تکون ہے۔"},
@@ -1276,10 +1276,10 @@ const LEVELS_HARMI = [
       {label:"🟨 مربع",correct:true,feedback:"شاباش!"},
       {label:"⭕ دائرہ",correct:false,feedback:"یہ دائرہ ہے۔"}
     ]},
-    {type:"finish",title:"شاباش ہارمی! 🎉",text:"والدین: ہارمی نے شکلیں سیکھ لیں!",badge:"harmi-2"}
+    {type:"finish",title:"شاباش حرم! 🎉",text:"والدین: حرم نے شکلیں سیکھ لیں!",badge:"harmi-2"}
   ]},
   { id:3, urdu:"ملانا", en:"Matching", icon:"🎯", steps:[
-    {type:"story",title:"ہارمی لیول 3",text:"بائٹ: ہارمی! ایک جیسی چیزیں ملائیں!",next:"چلیں"},
+    {type:"story",title:"حرم لیول 3",text:"بائٹ: حرم! ایک جیسی چیزیں ملائیں!",next:"چلیں"},
     {type:"choice",title:"ملاؤ",text:"🔵 کے ساتھ کون سی شکل؟",options:[
       {label:"🔵 نیلا دائرہ",correct:true,feedback:"شاباش!"},
       {label:"🔺 سرخ تکون",correct:false,feedback:"مختلف ہے۔"},
@@ -1289,10 +1289,10 @@ const LEVELS_HARMI = [
       {label:"🍎 سیب",correct:true,feedback:"شاباش!"},
       {label:"🐱 بلی",correct:false,feedback:"یہ الگ ہے۔"}
     ]},
-    {type:"finish",title:"شاباش ہارمی! 🎉",text:"والدین: ملانا سیکھ گئی!",badge:"harmi-3"}
+    {type:"finish",title:"شاباش حرم! 🎉",text:"والدین: ملانا سیکھ گئی!",badge:"harmi-3"}
   ]},
   { id:4, urdu:"محفوظ یا خطرناک", en:"Safe vs Unsafe", icon:"🛡️", steps:[
-    {type:"story",title:"ہارمی لیول 4",text:"بائٹ: ہارمی! آؤ محفوظ سیکھیں! (والدین ساتھ)",next:"چلیں"},
+    {type:"story",title:"حرم لیول 4",text:"بائٹ: حرم! آؤ محفوظ سیکھیں! (والدین ساتھ)",next:"چلیں"},
     {type:"choice",title:"محفوظ",text:"محفوظ کام کون سا؟",options:[
       {label:"✅ بڑے کے ساتھ بیٹھ کر کھیلنا",correct:true,feedback:"شاباش!"},
       {label:"❌ اجنبی سے بات کرنا",correct:false,feedback:"یہ خطرناک ہے۔"}
@@ -1301,10 +1301,10 @@ const LEVELS_HARMI = [
       {label:"❌ نہیں، خطرناک",correct:true,feedback:"شاباش! نہیں چھونا۔"},
       {label:"✅ ہاں، چھو لو",correct:false,feedback:"نہیں! تکلیف ہو گی۔"}
     ]},
-    {type:"finish",title:"شاباش ہارمی! 🎉",text:"والدین: محفوظ سیکھا!",badge:"harmi-4"}
+    {type:"finish",title:"شاباش حرم! 🎉",text:"والدین: محفوظ سیکھا!",badge:"harmi-4"}
   ]},
   { id:5, urdu:"پیٹرن", en:"Patterns", icon:"🔁", steps:[
-    {type:"story",title:"ہارمی لیول 5",text:"بائٹ: ہارمی! ایک جیسا پیٹرن!",next:"چلیں"},
+    {type:"story",title:"حرم لیول 5",text:"بائٹ: حرم! ایک جیسا پیٹرن!",next:"چلیں"},
     {type:"choice",title:"پیٹرن",text:"🔵 🔴 🔵 🔴 ؟",options:[
       {label:"🔵 نیلا",correct:true,feedback:"شاباش!"},
       {label:"🟡 پیلا",correct:false,feedback:"دوبارہ دیکھو۔"}
@@ -1313,10 +1313,10 @@ const LEVELS_HARMI = [
       {label:"🍎 سیب",correct:true,feedback:"شاباش!"},
       {label:"🍇 انگور",correct:false,feedback:"دوبارہ دیکھو۔"}
     ]},
-    {type:"finish",title:"شاباش ہارمی! 🎉",text:"والدین: پیٹرن سیکھ لیا!",badge:"harmi-5"}
+    {type:"finish",title:"شاباش حرم! 🎉",text:"والدین: پیٹرن سیکھ لیا!",badge:"harmi-5"}
   ]},
   { id:6, urdu:"ننھے ہیرو فائنل", en:"Little Heroes Final", icon:"🏆", steps:[
-    {type:"story",title:"ہارمی لیول 6",text:"بائٹ: ہارمی! سب کچھ یاد ہے؟",next:"چلیں"},
+    {type:"story",title:"حرم لیول 6",text:"بائٹ: حرم! سب کچھ یاد ہے؟",next:"چلیں"},
     {type:"choice",title:"رنگ",text:"🔴 یہ کون سا رنگ؟",options:[
       {label:"🔴 سرخ",correct:true,feedback:"شاباش! یاد ہے!"},
       {label:"🔵 نیلا",correct:false,feedback:"دوبارہ دیکھو۔"}
@@ -1325,7 +1325,7 @@ const LEVELS_HARMI = [
       {label:"⭕ دائرہ",correct:true,feedback:"شاباش!"},
       {label:"🟨 مربع",correct:false,feedback:"دوبارہ دیکھو۔"}
     ]},
-    {type:"finish",title:"ہارمی ہیرو! 🏆",text:"بائٹ: شاباش ہارمی!",badge:"harmi-6"}
+    {type:"finish",title:"حرم ہیرو! 🏆",text:"بائٹ: شاباش حرم!",badge:"harmi-6"}
   ]}
 ];
 
@@ -1499,7 +1499,7 @@ else:
 <div class="disclaimer">⚠️ <strong>اہم نوٹ:</strong> احادیث کے لیے اپنی مستند حدیث کی کتاب (مثلاً صحیح مسلم) سے اصل عربی اور مکمل سند کے ساتھ تصدیق کریں۔ میں نے صرف مفہوم بیان کیا ہے۔ کسی بھی شبہ کی صورت میں علماء سے رجوع کریں۔</div>`},
   {cat:"islamic", id:"islamic-mercy", title:"رحم اور نرمی", tag:"اسلامی کہانی", level:1,
     content:`<h3>رحم اور نرمی</h3>
-<p>ہارمی نے غلطی سے ایک جوس کا گلاس گرایا۔ سب گھبرا گئے۔ نوری نے کہا: "ڈر مت، صاف کر لیں گے۔" ماں نے کہا: "شاباش نوری، تم نے نرمی سے کام لیا۔"</p>
+<p>حرم نے غلطی سے ایک جوس کا گلاس گرایا۔ سب گھبرا گئے۔ نوری نے کہا: "ڈر مت، صاف کر لیں گے۔" ماں نے کہا: "شاباش نوری، تم نے نرمی سے کام لیا۔"</p>
 <div class="ref-box"><span class="ref-label">حدیث</span><span class="ref-text"><strong>صحیح البخاری 6011</strong> — نبی ﷺ نے فرمایا (مفہوم): "جو لوگوں پر رحم نہ کرے، اس پر (اللہ کی) رحمت نہیں ہوتی۔"</span></div>
 <div class="moral"><strong>سبق:</strong> جب کوئی غلطی کرے تو ڈانٹنے سے بہتر ہے کہ نرمی سے سمجھائیں۔ کمپیوٹر پر بھی — اگر کوئی کچھ غلط کرے تو مدد کریں، مذاق نہ اڑائیں۔</div>
 <div class="disclaimer">⚠️ <strong>اہم نوٹ:</strong> یہ صرف مفہوم ہے۔ اصل عربی متن اور مکمل سند کے لیے صحیح البخاری (یا مستند ترجمے) سے رجوع کریں۔ علماء سے تصدیق کروائیں۔</div>`},
@@ -3479,7 +3479,7 @@ window.BYTE_QA = [
   { k:["cyber","cybersecurity"], a:"Cybersecurity matlab computers aur data ko buray logon se bachana. Aap isi ko seekh rahe ho. Bahut important field hai!" },
   { k:["noori","نوری"], a:"Noori 9 saal ki Cyber Detective hai. Wo evidence dhoondti hai aur mysteries solve karti hai. Usse seekho - dhair saara!" },
   { k:["mano","مانو"], a:"Mano 7 saal ki Creative Safety Detective hai. Wo patterns aur safe choices jaldi pakad leti hai. Bahut hoshiyar hai!" },
-  { k:["harmi","ہارمی"], a:"Harmi 3 saal ki Little Explorer hai. Wo colors, shapes, patterns seekh rahi hai. Uske saath baith kar madad karo!" },
+  { k:["harmi","حرم"], a:"Harmi 3 saal ki Little Explorer hai. Wo colors, shapes, patterns seekh rahi hai. Uske saath baith kar madad karo!" },
   { k:["hello","hi","salam","assalam","hey"], a:"Assalam-o-Alaikum! Main Byte hoon. Kya sawal hai? Computer, internet, safety - kuch bhi poocho!" },
   { k:["thank","shukriya","thanks"], a:"Koi baat nahi! Mujhe aur sawal poochte raho. Main yahin hoon!" },
   { k:["bye","khuda","allah hafiz","goodbye"], a:"Allah Hafiz! Mujhe yaad rakhna. Phir milenge!" }

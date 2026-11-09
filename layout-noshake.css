@@ -1,14 +1,21 @@
 /* Cyber Heroes Academy — © 2026 Attique Ahmed / Cyber Heroes Academy. License: CC BY-NC-ND 4.0. See LICENSE.txt. */
+/* ===== NO-SHAKE LAYOUT (layout-noshake.css) — v8.2.2, 2026-11-06 =====
+   Owner rule: after any click (tab, level, quiz, button) NOTHING may move: no zoom change, no page-height change,
+   no element jump. v8.2.1 used fit-viewport.js (measure + CSS zoom + MutationObserver refit), which made screens
+   shake on the owner's Dell laptop. That script is REMOVED. Screens now fit with plain CSS only:
+   compact spacing, clamp() sizes, two-column answers on wide screens, sensible max-heights.
+   A little vertical scroll is allowed; shaking is not. No JavaScript, no timers, no observers, no zoom.
+   Pure presentation: no text, id, key, quiz, attempt limit, certificate rule or backup format is changed. */
 
-
-
+/* ---------- 1. tab change: fade only (the old fadeUp slid every screen 10px, which looked like a jump) ---------- */
 @keyframes chFadeOnly{ from{ opacity:0 } to{ opacity:1 } }
 .view{ animation-name:chFadeOnly; }
 
-
+/* page background: the root box grows with the page, so the body gradient no longer repeats (a visible
+   seam every screen-height) now that long screens scroll instead of zooming */
 html{ height:auto; min-height:100%; }
 
-
+/* ---------- 2. page screens: compact spacing that never depends on measuring ---------- */
 .view{ padding:clamp(12px,2.6vh,26px) clamp(10px,2vw,18px) 20px; }
 .view h1{ font-size:clamp(1.45rem,1.1rem + 1.4vw,2.2rem); margin:.15em 0 .35em; }
 .view h2{ margin:.2em 0 .4em; }
@@ -19,7 +26,7 @@ html{ height:auto; min-height:100%; }
   .world-grid,.library-grid,.stats-grid{ gap:12px; }
 }
 
-
+/* Home: smaller castle and tighter blocks on short windows (laptop windows ~600-700px tall) */
 .neo-title{ font-size:clamp(1.8rem,1.2rem + 2.6vw,3.2rem); }
 @media (max-height:780px){
   .neo-home-wrap{ padding-top:18px; padding-bottom:16px; }
@@ -28,27 +35,33 @@ html{ height:auto; min-height:100%; }
   .neo-btn-group{ margin-bottom:12px; }
 }
 
-
+/* ---------- 3. answers in two columns on a wide screen (fewer rows, less scroll) ---------- */
 @media (min-width:900px){
   #modalBody .options{ display:grid; grid-template-columns:1fr 1fr; gap:10px; }
   #modalBody .options > .option{ margin:0; width:auto; }
   #view-academy .ac-quiz{ display:grid; grid-template-columns:1fr 1fr; gap:8px 22px; align-items:start; }
 }
 
-
+/* ---------- 4. level window: fixed size box that scrolls inside itself; Back/Next stay in the flow ---------- */
 .modal-card{ max-height:92vh; max-height:92dvh; overflow-y:auto; overscroll-behavior:contain; }
-
+/* phone: the round 🤖 (bottom 100px, ~60px tall), «💡 Hint» and 🎓 (bottom 30px) buttons float over the lower part
+   of the screen. The level window sits at the top and stops above them, so no answer / Next button is ever under a
+   floating button (the box scrolls inside itself if it is longer). Fixed sizes only: nothing is measured. */
 @media (max-height:700px){ .modal-card{ padding-top:46px; } #modal .modal-card{ padding-bottom:16px; } #modal .mission-text{ margin:.2em 0 .5em; } }
 @media (max-width:600px){ .modal{ place-items:start center; } #modal .modal-card{ max-height:calc(100vh - 186px); max-height:calc(100dvh - 186px - env(safe-area-inset-bottom, 0px)); padding-bottom:16px; } }
 
-
+/* Level 9 log filter (phone): the log table gets its OWN scroll box (capped height, the sticky header row stays
+   on top), so every row is reachable inside the top-pinned level window without moving it. Slightly smaller
+   monospace text so each row's middle sits inside the box (the table still scrolls sideways for the last columns).
+   Same text, same rows, same filters: presentation only. */
 @media (max-width:600px){
   #modal .log-table-wrap{ max-height:min(300px,42vh); max-height:min(300px,42dvh); overflow:auto; overscroll-behavior:contain; }
   #modal .log-table{ font-size:.78rem; }
-  #modal .log-table th,#modal .log-table td{ padding:10px 8px; }  
+  #modal .log-table th,#modal .log-table td{ padding:10px 8px; }  /* rows stay >=34px tall: easy to tap */
 }
 
-
+/* ---------- 5. Master Academy hub (🎓): the box scrolls inside the overlay, so the last
+   «Associate Track (13+)» button and «بند کریں» are always reachable (no measuring, no zoom) ---------- */
 #master-hub-modal{ overflow-y:auto !important; align-items:safe center !important; }
 #master-hub-modal > div{ box-sizing:border-box; margin:auto 0; }
 @media (max-height:900px){
@@ -61,29 +74,34 @@ html{ height:auto; min-height:100%; }
   #master-hub-modal > div > button{ margin-top:10px !important; }
 }
 
-
+/* Phone: Back and Next side by side (one row instead of two) */
 @media (max-width:600px){ .ac-nav{ flex-wrap:nowrap; } .ac-nav > .btn{ flex:1 1 0; min-width:0; } }
 
-
-
+/* ---------- 6. END-OF-PAGE ROOM + HOME NOTE (v8.2.3, owner 2026-11-07) ---------- */
+/* The page footer (#ch-site-footer) is gone: the small disclaimer with both emails is now ONLY on Home
+   (about-us.js → #view-home .chau-disc-home). The footer used to give the bottom room that keeps the last
+   content clear of the round 🎓 / Byte buttons (~65px tall, 24-30px from the bottom; on phones Byte sits at
+   bottom:100px), so <main> now carries that same room itself. */
 main{ padding-bottom:calc(112px + env(safe-area-inset-bottom, 0px)); }
 @media (max-width:600px){ main{ padding-bottom:calc(176px + env(safe-area-inset-bottom, 0px)); } }
 @media print{ main{ padding-bottom:0; } }
 #view-home .chau-disc-home{ position:static !important; overflow:visible !important; max-height:none !important; height:auto !important; }
 
-
-
+/* ---------- 7. floating buttons never bounce or grow (they read as "shaking") ---------- */
+/* «💡 Hint» used to float up/down forever (floatHint); the round 🎓/🤖 buttons grew 10% under the mouse. */
 #clean-hint-btn,.hint-btn-clean{ animation:none !important; }
 .byte-fab-clean:hover{ transform:none !important; }
+/* the 🎓 hub always lies above the round buttons (they used to pop through it a second after opening) */
+#master-hub-modal{ z-index:10000000 !important; }  /* the 🎓 button itself is 9999999 */
 
-#master-hub-modal{ z-index:10000000 !important; }  
-
-
-
+/* ---------- 8. nothing lifts or grows under the mouse ---------- */
+/* Buttons/cards used to jump 2-5px up (or grow 2-10%) on mouse-over. After a click the screen changes under a
+   resting mouse pointer, so a new card would jump a moment later = a visible "shake" on the laptop.
+   Colour, glow and border feedback stay; only the movement is removed. */
 .btn:hover,.library-card:hover,.character-card:hover,.islamic-card:hover,.pa-module:hover,.book-toc-item:hover,
 .ac-building:hover,.ac-building:focus-visible,.ac-mod:hover,.world-card:hover,.neo-card:hover,
 .neo-btn-primary:hover,.neo-btn-secondary:hover,.cert-view-btn:hover,.cert-close-floating:hover,
 .dp-btn:hover,.dp-hero-card:hover,.dp-column:hover,.sg-item:hover,.pi-tech:hover,.lab-typing-cta:hover,
 .tsl-card:hover,.big-bubble:hover,.big-shape-btn:hover,.byte-fab:hover,.option:hover{ transform:none !important; }
-
+/* the page never gets wider/narrower when a window opens/closes (a classic Windows scrollbar is 17px wide) */
 html{ scrollbar-gutter:stable; }

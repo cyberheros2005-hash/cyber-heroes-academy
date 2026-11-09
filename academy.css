@@ -1,4 +1,5 @@
-
+/* ===== CYBER HEROES ACADEMY — campus, labs, Byte panels (academy.css) =====
+   Lightweight: no external fonts or images; few animations; respects reduced motion. */
 .ac-root { direction: rtl; max-width: 1150px; margin: 0 auto; padding: 8px 12px 60px; }
 .ac-root code, .ac-root pre, [dir="ltr"] { direction: ltr; unicode-bidi: isolate; }
 .ac-hero { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 16px; align-items: center; background: linear-gradient(135deg, rgba(74,58,255,.25), rgba(69,224,255,.12)); border: 1px solid rgba(69,224,255,.35); border-radius: 22px; padding: 22px; margin-bottom: 16px; }
@@ -101,7 +102,7 @@
 @keyframes acShake { 25% { transform: translateX(-8px); } 75% { transform: translateX(8px); } }
 .ac-tap-dots { margin-top: 16px; } .ac-tap-dots span { display: inline-block; width: 16px; height: 16px; border-radius: 50%; background: rgba(255,255,255,.2); margin: 0 4px; } .ac-tap-dots .done { background: #3fb950; } .ac-tap-dots .cur { background: #ffd84d; }
 .ac-tap-done { font-size: 4rem; padding: 30px; }
-
+/* Byte tutor panels */
 .bb-context { background: rgba(255,255,255,.06); border-bottom: 1px solid rgba(69,224,255,.25); padding: 8px 14px; font-size: .8rem; color: #ccd; direction: rtl; }
 .bb-modes { display: flex; flex-wrap: wrap; gap: 4px; padding: 8px 10px; background: #140b33; direction: rtl; }
 .bb-mode { font-family: inherit; font-size: .78rem; padding: 5px 10px; border-radius: 14px; border: 1px solid rgba(69,224,255,.4); background: transparent; color: #cfefff; cursor: pointer; }

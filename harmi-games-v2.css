@@ -1,5 +1,6 @@
 /* Cyber Heroes Academy — © 2026 Attique Ahmed / Cyber Heroes Academy. License: CC BY-NC-ND 4.0 (free to share with credit; no commercial use; no modified copies). See LICENSE.txt. */
-
+/* Harmi Games v2 + mascot «چمکو» (2026-11-08, candidate add-on). All classes are prefixed g2- (mascot g2m-).
+   Only transform/opacity are animated; every box has a fixed size so nothing shifts while the mascot moves. */
 .g2-host{font-family:"Segoe UI",Tahoma,"Noto Naskh Arabic","Noto Nastaliq Urdu",sans-serif;user-select:none;-webkit-user-select:none}
 .g2-root{position:absolute;inset:0;overflow:hidden;direction:rtl;display:grid;grid-template-rows:64px minmax(0,1fr);gap:8px;padding:8px;box-sizing:border-box;
   background:radial-gradient(120% 80% at 80% 0%,#fef9c3 0%,#bae6fd 45%,#a7f3d0 100%);color:#0f172a}
@@ -12,7 +13,7 @@
 .g2-dots{display:flex;gap:8px;padding:0 6px}
 .g2-dot{width:18px;height:18px;border-radius:50%;background:rgba(255,255,255,.7);border:3px solid #0ea5e9}
 .g2-dot.now{background:#fde047}.g2-dot.done{background:#22c55e;border-color:#15803d}
-
+/* main: landscape = guide column (start/right) + board; portrait = guide row on top */
 .g2-main{display:grid;grid-template-columns:minmax(230px,28%) minmax(0,1fr);gap:12px;min-height:0}
 .g2-guide{position:relative;display:grid;grid-template-rows:150px minmax(0,1fr);gap:18px;min-height:0;align-items:end;justify-items:center}
 .g2-guide .g2-bubble{grid-row:1}.g2-guide .g2-mascot{grid-row:2;align-self:center}
@@ -39,7 +40,7 @@
   .g2-cue{font-size:28px;line-height:44px}
 }
 
-
+/* ---------- mascot ---------- */
 .g2m-walk,.g2m-tilt,.g2m-react{position:absolute;inset:0}
 .g2m-tilt{transition:transform .35s ease-out;transform-style:preserve-3d}
 .g2m-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
@@ -72,7 +73,7 @@
 @keyframes g2Pop{from{transform:scale(.95)}to{transform:scale(1)}}
 @keyframes g2Fade{from{opacity:.25}to{opacity:1}}
 
-
+/* ---------- shared pieces ---------- */
 .g2-item,.g2-zone{font:inherit;border:0;cursor:pointer;touch-action:none;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;
   min-width:96px;min-height:96px;border-radius:24px;background:#fff;color:#0f172a;box-shadow:0 6px 0 rgba(0,0,0,.14),0 10px 18px rgba(2,132,199,.12);padding:8px 10px;position:relative}
 .g2-item{transition:transform .12s}
@@ -102,7 +103,7 @@
   .g2-msg{max-width:340px}.g2-slot{min-width:96px;min-height:96px}.g2-pic{min-width:88px;min-height:88px}.g2-pic .g2-emo{font-size:50px}
   .g2-tablet{width:440px;min-height:260px}.g2-screen{height:236px}.g2-lockopt{min-width:190px}.g2-code{font-size:38px}
 }
-
+/* game 2 lock */
 .g2-door{display:flex;align-items:center;gap:14px;background:linear-gradient(#fcd34d,#f59e0b);border-radius:26px;padding:12px 16px;box-shadow:0 8px 0 #b45309}
 .g2-door-ic{font-size:64px;font-family:"Segoe UI Emoji","Noto Color Emoji",sans-serif}
 .g2-slots{display:flex;gap:10px;direction:ltr}
@@ -116,7 +117,7 @@
 .g2-code{direction:ltr;font-size:30px;font-family:"Segoe UI Emoji","Noto Color Emoji",sans-serif}
 .g2-lockopt.g2-locked{background:#dcfce7;color:#15803d}
 .g2-key .g2-lbl{direction:ltr;font-size:26px}
-
+/* game 3 pop-up */
 .g2-tablet{width:min(100%,360px);min-height:210px;background:#1e293b;padding:12px;border-radius:28px}
 .g2-screen{position:relative;display:block;width:100%;height:186px;border-radius:16px;background:linear-gradient(#bae6fd,#bbf7d0);overflow:hidden}
 .g2-cartoon{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:64px;font-family:"Segoe UI Emoji","Noto Color Emoji",sans-serif}
@@ -128,11 +129,11 @@
 .g2-tablet.g2-used.g2-asked{opacity:1;transform:none;pointer-events:none}
 .g2-grown{min-width:190px}
 @keyframes g2Wobble{0%,100%{transform:rotate(-1.5deg)}50%{transform:rotate(1.5deg)}}
-
+/* game 4 kind */
 .g2-msg{max-width:300px;border-radius:24px 24px 24px 6px;background:#e0f2fe}
 .g2-msg .g2-lbl{font-size:21px}
 .g2-incoming{background:#fef3c7}
-
+/* game 5 maze */
 .g2-grid{position:relative;display:grid;grid-template-columns:repeat(4,1fr);grid-template-rows:repeat(4,1fr);gap:0;
   width:min(100%,calc(100vh - 230px),520px);aspect-ratio:1;background:#86efac;border-radius:22px;padding:0;box-shadow:0 8px 0 #15803d}
 .g2-cell{font:inherit;border:3px solid rgba(255,255,255,.7);background:#fefce8;border-radius:16px;margin:4px;cursor:pointer;min-width:48px;min-height:48px;display:flex;align-items:center;justify-content:center;touch-action:manipulation}
@@ -160,7 +161,7 @@
   .g2-grid{width:min(100%,calc(100vh - 330px))}
 }
 
-
+/* ---------- end card ---------- */
 .g2-over{position:absolute;inset:0;z-index:70;background:rgba(12,74,110,.45);display:flex;align-items:center;justify-content:center;padding:12px}
 .g2-hidden{display:none}
 .g2-card{background:#fff;border-radius:28px;padding:22px 26px;text-align:center;max-width:min(94vw,540px);display:flex;flex-direction:column;gap:10px;align-items:center;box-shadow:0 18px 50px rgba(0,0,0,.3)}
@@ -173,7 +174,7 @@
 .g2-wide{flex:1;font-size:22px;padding:8px 14px;background:#22c55e;color:#fff}
 .g2-ghost{background:#e2e8f0;color:#0f172a}
 
-
+/* ---------- section on the Harmi Play map ---------- */
 .g2-sec{margin-top:22px}
 .g2-sec-h{margin:0 0 12px;font-size:clamp(22px,3vw,34px);color:#0c4a6e}
 .hpm-card.g2-mapcard{position:relative;background:linear-gradient(160deg,#fff,#ecfeff)}

@@ -1,10 +1,16 @@
+/* phase2.css — Cyber Heroes Academy
+   The HTML has always linked this file, but the original was never uploaded, so every
+   phase2.js activity (sort game, memory cards, connect-the-dots, Harmi games, typing game,
+   book reader, PIN setup, Python editor, prompt-injection lab, log analysis, case file,
+   AI assistant, data poisoning, confetti) showed as unstyled text.
+   Written 2026-11-01. Style only: no content, curriculum, text or font-family changes.
+   Uses the app's own colour variables from CyberHeroes_Hark_Review.html. */
 
-
-
+/* ---------- shared: anything with an onclick is clickable ---------- */
 #modalBody [onclick], .book-modal [onclick], .typing-game-modal [onclick] { cursor: pointer; }
 #modalBody [onclick]:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
 
-
+/* ---------- SORT GAME (Safe ya Suspicious, Strong ya Weak ...) ---------- */
 .sg-items { display: flex; flex-wrap: wrap; gap: 10px; padding: 12px; margin: 12px 0;
   background: rgba(0,0,0,.22); border: 1px dashed rgba(255,255,255,.22); border-radius: 16px; min-height: 60px; }
 .sg-item { background: rgba(69,224,255,.16); border: 2px solid rgba(69,224,255,.7); color: #fff;
@@ -28,7 +34,7 @@
 .sg-bin:hover { filter: brightness(1.12); }
 @keyframes p2Pulse { 50% { box-shadow: 0 0 0 8px rgba(255,216,77,.10); } }
 
-
+/* ---------- MEMORY MATCH ---------- */
 .mm-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; max-width: 460px; margin: 16px auto; }
 .mm-card { aspect-ratio: 1 / 1; perspective: 700px; cursor: pointer; user-select: none; touch-action: manipulation; }
 .mm-card-inner { position: relative; width: 100%; height: 100%; transition: transform .35s ease; transform-style: preserve-3d; }
@@ -41,7 +47,7 @@
 .mm-card.matched .mm-front { background: rgba(111,255,210,.9); border-color: var(--mint); }
 .mm-card:hover:not(.flipped):not(.matched) .mm-back { filter: brightness(1.15); }
 
-
+/* ---------- CONNECT THE DOTS ---------- */
 .cd-svg { display: block; width: 100%; max-width: 420px; height: auto; margin: 12px auto;
   background: rgba(0,0,0,.28); border: 1px solid rgba(255,255,255,.18); border-radius: 18px; }
 .cd-line { stroke: var(--cyan); stroke-width: 5; stroke-linecap: round; }
@@ -52,7 +58,7 @@
 .cd-dot-number { fill: #fff; font-size: 14px; font-weight: 900; text-anchor: middle; pointer-events: none; paint-order: stroke; stroke: #1b1150; stroke-width: 3px; }
 @keyframes p2Blink { 50% { opacity: .55; } }
 
-
+/* ---------- HARMI (little ones) GAMES ---------- */
 .harmi-game { text-align: center; padding: 6px 0; }
 .harmi-prompt { font-size: 1.35rem; font-weight: 900; line-height: 1.7; margin: 8px auto 16px; padding: 14px;
   background: rgba(255,255,255,.08); border-radius: 18px; max-width: 520px; }
@@ -76,7 +82,7 @@
 @keyframes p2Shake { 25% { transform: translateX(-6px); } 75% { transform: translateX(6px); } }
 @keyframes p2Pop { 0% { transform: scale(.3); opacity: 0; } 70% { transform: scale(1.15); } 100% { transform: scale(1); opacity: 1; } }
 
-
+/* ---------- LEVEL COMPLETE STARS + CONFETTI ---------- */
 .completion-stars { display: flex; justify-content: center; gap: 10px; margin: 10px 0; }
 .completion-stars .star { font-size: 2.6rem; display: inline-block; transform: scale(.2); opacity: .2; transition: transform .35s ease, opacity .35s ease; }
 .completion-stars .star.pop { transform: scale(1); opacity: 1; }
@@ -84,7 +90,7 @@
 .confetti { position: absolute; top: -20px; border-radius: 2px; animation-name: p2Fall; animation-timing-function: linear; animation-fill-mode: forwards; }
 @keyframes p2Fall { to { transform: translateY(110vh) rotate(720deg); opacity: .8; } }
 
-
+/* ---------- TYPING PRACTICE GAME (modal) ---------- */
 .typing-game-modal { position: fixed; inset: 0; z-index: 90; display: flex; align-items: center; justify-content: center;
   padding: 16px; background: rgba(3,2,12,.86); backdrop-filter: blur(8px); }
 .typing-game-panel { width: min(980px, 100%); max-height: calc(100vh - 32px); overflow-y: auto;
@@ -129,7 +135,7 @@
   .vkey-row { gap: 3px; }
 }
 
-
+/* ---------- BOOK READER (Library) : opens like a real book ---------- */
 .book-modal { position: fixed; inset: 0; z-index: 70; display: flex; align-items: center; justify-content: center;
   padding: 16px; background: rgba(3,2,12,.88); backdrop-filter: blur(8px); }
 .book-reader-container { position: relative; width: min(900px, 100%); height: calc(100vh - 32px); display: flex; flex-direction: column;
@@ -186,7 +192,7 @@
   .book-topbar h2 { font-size: 1rem; }
 }
 
-
+/* ---------- PARENT PIN SETUP / ENTRY ---------- */
 .pin-modal-overlay { position: fixed; inset: 0; z-index: 110; display: flex; align-items: center; justify-content: center;
   padding: 16px; background: rgba(3,2,12,.9); backdrop-filter: blur(8px); }
 .pin-modal-box { width: min(400px, 100%); text-align: center; padding: 26px 24px; border-radius: var(--radius);
@@ -197,7 +203,7 @@
   border-radius: 14px; border: 2px solid rgba(255,255,255,.25); background: rgba(0,0,0,.35); color: #fff; direction: ltr; }
 .pin-input:focus { outline: none; border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(69,224,255,.25); }
 
-
+/* ---------- PYTHON EDITOR ---------- */
 .py-editor-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; direction: ltr; }
 .py-editor-panel, .py-output-panel { display: flex; flex-direction: column; background: #0b0820; border: 1px solid rgba(255,255,255,.18); border-radius: 14px; overflow: hidden; }
 .py-editor-header, .py-output-header { display: flex; justify-content: space-between; align-items: center; padding: 8px 12px;
@@ -212,7 +218,7 @@
 .py-hint, .cr-hint, .cf-hint { margin: 10px 0; padding: 10px 12px; border-radius: 12px; background: rgba(255,216,77,.10); border: 1px solid rgba(255,216,77,.35); font-size: .92rem; }
 @media (max-width: 720px) { .py-editor-wrap { grid-template-columns: 1fr; } }
 
-
+/* ---------- PROMPT INJECTION LAB ---------- */
 .pi-techniques-wrap { margin: 12px 0; }
 .pi-tech-title { font-weight: 900; margin-bottom: 8px; }
 .pi-techniques { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px; }
@@ -234,7 +240,7 @@
 .pi-input-row button { padding: 0 18px; min-height: 44px; border: 0; border-radius: 12px; cursor: pointer; font-weight: 900; color: #fff;
   background: linear-gradient(135deg, var(--purple), var(--blue)); }
 
-
+/* ---------- DATA POISONING ---------- */
 .dp-dataset { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 12px 0; }
 .dp-column { padding: 14px; border-radius: 16px; cursor: pointer; border: 3px solid rgba(255,255,255,.2); background: rgba(255,255,255,.06);
   transition: transform .12s ease, box-shadow .12s ease; }
@@ -244,7 +250,7 @@
 .dp-column h4 { margin: 0 0 8px; text-align: center; }
 .dp-item { padding: 8px 10px; margin: 6px 0; border-radius: 10px; background: rgba(0,0,0,.25); font-size: .92rem; }
 
-
+/* ---------- AI ASSISTANT (verify the AI) ---------- */
 .ai-suggestions { display: grid; gap: 12px; margin: 12px 0; }
 .ai-suggestion { padding: 14px; border-radius: 16px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.2); }
 .ai-suggestion.answered { opacity: .95; }
@@ -258,7 +264,7 @@
 .ai-result.correct { background: rgba(111,255,210,.16); border: 1px solid rgba(111,255,210,.45); }
 .ai-result.wrong { background: rgba(255,122,107,.16); border: 1px solid rgba(255,122,107,.5); }
 
-
+/* ---------- LOG ANALYSIS ---------- */
 .log-controls { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
 .log-filter { min-height: 40px; padding: 8px 14px; border-radius: 999px; cursor: pointer; font-weight: 800; color: #fff;
   background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.25); }
@@ -275,7 +281,7 @@
 .log-ip-summary, .log-evidence { margin: 12px 0; padding: 12px; border-radius: 14px; background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.18); }
 .log-warn { color: var(--yellow); font-weight: 800; }
 
-
+/* ---------- CASE FILE (case study) ---------- */
 .cf-tabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
 .cf-tab { min-height: 42px; padding: 8px 14px; border-radius: 12px; cursor: pointer; font-weight: 800; color: #fff;
   background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.25); }
@@ -290,7 +296,7 @@
 .cf-progress { margin: 8px 0; font-weight: 800; color: var(--cyan); }
 .cr-field { margin: 14px 0; }
 
-
+/* ---------- animated background layers ---------- */
 #ch-bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; overflow: hidden; }
 .ch-orb { position: absolute; border-radius: 50%; filter: blur(60px); opacity: .35; }
 .orb-1 { width: 380px; height: 380px; background: var(--purple); top: -80px; right: -80px; }
@@ -307,8 +313,8 @@
   .sg-bin.target, .cd-dot.next, .typing-char.current, .pattern-slot.missing, .book-reader-container { animation: none !important; }
 }
 
-
-
+/* ===== v3 real-user UI audit fixes (2026-11-01) ===== */
+/* Computer Lab: the Typing Practice card had no card styling (icon, text and button stacked; button full width). */
 .lab-typing-cta { display: flex; align-items: center; gap: 16px; padding: 18px 20px; margin-top: 18px; border-radius: 18px;
   background: linear-gradient(135deg, rgba(255,216,77,.14), rgba(124,77,255,.20)); border: 1px solid rgba(255,216,77,.45);
   box-shadow: 0 8px 24px rgba(0,0,0,.25); cursor: pointer; transition: transform .15s ease, border-color .15s ease; }
@@ -319,27 +325,33 @@
 .lab-typing-cta p { margin: 0; color: #d6d9ff; }
 .lab-typing-cta .btn { flex: 0 0 auto; width: auto; min-height: 44px; display: inline-flex; align-items: center; }
 @media (max-width: 600px) { .lab-typing-cta { flex-wrap: wrap; } .lab-typing-cta .btn { width: 100%; justify-content: center; } }
-
+/* Floating buttons: Byte (🤖) sat on top of the first nav button; the Master Academy button (🎓) sat on the
+   app title because its class sets top:20px and RTL makes right win. Defaults only: a position the child
+   dragged to (inline style) still wins. */
 #clean-byte-fab.byte-fab-clean { top: 84px; }
 @media (max-width: 600px) { #clean-byte-fab.byte-fab-clean { top: auto; bottom: 100px; } }
 #master-hub-fab { top: auto !important; }
-
+/* Phones: room under the last button so the floating Hint/Byte buttons never sit on it. (ui-polish.js also
+   scrolls a newly unlocked Next button into view.) */
 @media (max-width: 600px) { .modal-card { padding-bottom: 96px; } }
-
+/* Computer Lab on phones: the grid column grew to the terminal's width (538px on a 390px screen), so the whole
+   page scrolled sideways and the right side was cut off. */
 #view-lab .lab-wrap { grid-template-columns: minmax(0, 1fr); }
 #view-lab .lab-wrap > * { min-width: 0; }
 #view-lab .lab-terminal { overflow-x: auto; }
 #view-lab .lab-terminal .line { white-space: pre-wrap; overflow-wrap: anywhere; }
 #view-lab .lab-help code { white-space: normal; overflow-wrap: anywhere; }
-
+/* Connect-the-dots on phones: the SVG scales down, so the dots grew to at least ~36px to stay easy to tap. */
 @media (max-width: 600px) { .cd-dot { r: 22px; } }
-
+/* Log and case-file tables: rows are clickable (inspect an IP) but looked like plain text. */
 #modalBody tr[onclick] { cursor: pointer; }
 #modalBody tr[onclick] td { background: rgba(255,255,255,.035); transition: background .12s ease; }
 #modalBody tr[onclick]:hover td { background: rgba(69,224,255,.12); }
-
+/* Master Classroom labs: typed inputs were 20px tall. */
 #ai-input, #sim-terminal-input, #cyber-input, #pass-input { min-height: 40px; }
-
+/* Master Classroom labs on phones (390px): the lab windows are side-by-side layouts built for laptops, so on
+   a phone the network map, the lock picture and the AI rules panel were pushed off the left/right edge.
+   On narrow screens the panels stack vertically and the header buttons wrap. Laptop layout is unchanged. */
 @media (max-width: 600px) {
   #sim-terminal-modal, #code-lab-modal, #cyber-lab-modal, #pass-lab-modal, #ai-lab-modal { padding: 8px !important; }
   #sim-terminal-modal .sim-window, #code-lab-modal .code-lab-window, #cyber-lab-modal .cyber-lab-window,
@@ -363,7 +375,8 @@
   #sim-terminal-modal .sim-input-row input, #cyber-lab-modal .sim-input-row input, #pass-lab-modal .sim-input-row input { min-width: 0 !important; width: 100% !important; }
   #code-lab-modal .code-lab-footer, #cyber-lab-modal .code-lab-footer, #pass-lab-modal .code-lab-footer, #ai-lab-modal .code-lab-footer { flex-wrap: wrap !important; gap: 8px !important; }
 }
-
+/* Computer Lab on phones: the command line (prompt label + input + Run) did not wrap, so the Run button was
+   pushed off the screen and the page scrolled sideways. */
 @media (max-width: 600px) {
   #view-lab .lab-prompt-line { flex-wrap: wrap; }
   #view-lab .lab-prompt-label { flex: 1 1 100%; white-space: normal; overflow-wrap: anywhere; }
@@ -372,7 +385,9 @@
   #view-lab .lab-header { flex-wrap: wrap; min-width: 0; }
   #view-lab .lab-header > * { min-width: 0; max-width: 100%; }
 }
-
+/* v8.2.5 BB1 — Byte chat on phones: the text box would not shrink below its natural width (363px), so the
+   «بھیجیں» button was pushed off the right edge of a 390px screen, and the round 🤖 button (kept at z-index
+   999999 by a timer) sat on top of the left end of the text box. Phones only; laptop layout unchanged. */
 @media (max-width: 600px) {
   #clean-byte-modal.byte-modal-clean { z-index: 1000000; padding: 12px; }
   #clean-byte-modal .byte-chat-clean { max-width: 100%; box-sizing: border-box; }
@@ -380,7 +395,9 @@
   #clean-byte-modal .byte-input-clean { flex: 1 1 auto; width: auto; min-width: 0; max-width: 100%; box-sizing: border-box; }
   #clean-byte-modal .byte-send-clean { flex: 0 0 auto; min-height: 44px; padding: 0 14px; box-sizing: border-box; }
 }
-
+/* v8.2.6 BB2 — Byte chat on laptops (1280/1366): same fix as BB1, at every width. The text box kept its
+   natural width, so «بھیجیں» stuck out ~25px past the right edge of the chat box and was clipped.
+   Byte chat selectors only; nothing else on the page changes. */
 #clean-byte-modal .byte-chat-clean { box-sizing: border-box; }
 #clean-byte-modal .byte-input-area-clean { min-width: 0; max-width: 100%; box-sizing: border-box; }
 #clean-byte-modal .byte-input-clean { flex: 1 1 auto; width: auto; min-width: 0; max-width: 100%; box-sizing: border-box; }
